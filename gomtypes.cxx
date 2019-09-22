@@ -8,7 +8,7 @@
 #define __gomtypes_implementation__
 
 
-#include "GOMTYPES.h"
+#include "gomtypes.h"
 
 
 class unit_gomtypes_initialize {

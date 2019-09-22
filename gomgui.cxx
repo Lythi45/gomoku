@@ -7,7 +7,7 @@
 #define __gomgui_implementation__
 
 
-#include "GOMGUI.h"
+#include "gomgui.h"
 
 
 #include "graph.h"

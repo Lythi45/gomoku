@@ -8,7 +8,7 @@
 #define __gomutil_implementation__
 
 
-#include "GOMUTIL.h"
+#include "gomutil.h"
 
 
 integer sgn(integer x)

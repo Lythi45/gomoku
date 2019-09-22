@@ -324,6 +324,12 @@ je nach Spielstufe mehr oder weniger intelligent vor.*/
 
 void computerzug ( integer& px, integer& py, boolean& ok);
 
+static integer auswahl,ost;
+
+static longint qual;
+
+static tbewertunga nzuege;
+
 
 /*BesterZug ermittelt den besten Zug, bekommt dafr mitgeteilt,
 bis zu welcher Tiefe Zge kalkuliert werden drfen,,welche Farbe
@@ -336,7 +342,7 @@ static longint besterzug (integer& px,integer& py,
                         integer zugtiefe,
                         tstein cpst,tstein spst,
                         integer schwelle,
-                        integer gewicht , integer& ost, integer& auswahl, tbewertunga& nzuege, longint& qual)
+                        integer gewicht )
 
 {
     integer sumbewe,bewe,faktor,ri;
@@ -732,7 +738,7 @@ Der Faktor zwei ergab sich empirisch beim Spielen der Stufe 2 gegen Stufe 0.
                xx=zuege[t].x;
                yy=zuege[t].y;
                eintragen(xx,yy,cpst);
-               qual=zuege[t].bewe*longint(2)*longint(zugtiefe)-besterzug(xxx,yyy,zugtiefe-1,spst,cpst,1,3, ost, auswahl, nzuege, qual);
+               qual=zuege[t].bewe*longint(2)*longint(zugtiefe)-besterzug(xxx,yyy,zugtiefe-1,spst,cpst,1,3);
                if (qual>=maxqual) 
                {
                   if (qual>maxqual) 
@@ -765,10 +771,7 @@ void computerzug ( integer& px, integer& py, boolean& ok)
 
 {
    tstein computerstein,spielerstein;
-   integer auswahl,ost;
    tstatus state;
-   longint qual;
-   tbewertunga nzuege;
 
 ;
 
@@ -806,13 +809,13 @@ ausgew„hlt, fr die Stufe zwei eines in der Mitte.*/
          switch (spielstufe) {
 
 /*Nur Viererketten werden erkannt.*/
-           case 0 : qual=besterzug(px,py,0,computerstein,spielerstein,1000,2, ost, auswahl, nzuege, qual); break;
+           case 0 : qual=besterzug(px,py,0,computerstein,spielerstein,1000,2); break;
 
 /*Dreier und Viererketten werden erkannt.*/
-           case 1 : qual=besterzug(px,py,2,computerstein,spielerstein,81,2, ost, auswahl, nzuege, qual); break;
+           case 1 : qual=besterzug(px,py,2,computerstein,spielerstein,81,2); break;
 
 /*auch kuerzere Ketten werden bewertet.*/
-           case 2 : qual=besterzug(px,py,2,computerstein,spielerstein,1,3, ost, auswahl, nzuege, qual); break;
+           case 2 : qual=besterzug(px,py,2,computerstein,spielerstein,1,3); break;
 
          }
       }

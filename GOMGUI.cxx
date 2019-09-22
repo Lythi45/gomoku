@@ -100,7 +100,7 @@ typedef tbildarray* tzbildarray;
 typedef array<0,350,integer> tzeilenarray;
 
 struct tbild {
-           string name;
+           asciiz name;
            tzbildarray bild;
            tzeilenarray zeile;
            integer xsize;
